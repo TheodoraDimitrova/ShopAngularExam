@@ -42,7 +42,7 @@ import { AuthGuardService } from "./auth-guard.service";
     AngularFireDatabaseModule, // for database
     AngularFireAuthModule,
     RouterModule.forRoot([
-      //anonymouse
+      //anonymousUsers
       { path: "", component: HomeComponent },
       { path: "login", component: LoginComponent },
       { path: "products", component: ProductsComponent },
