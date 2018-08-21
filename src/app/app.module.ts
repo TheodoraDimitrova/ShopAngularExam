@@ -1,4 +1,4 @@
-import { environment } from "./../environments/environment";
+import { environment } from "../environments/environment"
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { AngularFireModule } from "angularfire2";
@@ -8,20 +8,23 @@ import { RouterModule } from "@angular/router";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppComponent } from "./app.component";
-import { BsNavbarComponent } from "./bs-navbar/bs-navbar.component";
-import { HomeComponent } from "./home/home.component";
-import { ProductsComponent } from "./products/products.component";
-import { ShoppingCardComponent } from "./shopping-card/shopping-card.component";
-import { CheckOutComponent } from "./check-out/check-out.component";
-import { OrderSuccessComponent } from "./order-success/order-success.component";
-import { MyOrdersComponent } from "./my-orders/my-orders.component";
-import { AdminProductsComponent } from "./admin/admin-products/admin-products.component";
-import { AdminOrdersComponent } from "./admin/admin-orders/admin-orders.component";
-import { LoginComponent } from "./login/login.component";
+import { BsNavbarComponent } from "./components/bs-navbar/bs-navbar.component";
+import { HomeComponent } from "./components/home/home.component";
+import { ProductsComponent } from "./components/products/products.component";
+import { ShoppingCardComponent } from "./components/shopping-card/shopping-card.component";
+import { CheckOutComponent } from "./components/check-out/check-out.component";
+import { OrderSuccessComponent } from "./components/order-success/order-success.component";
+import { MyOrdersComponent } from "./components/my-orders/my-orders.component";
+import { AdminProductsComponent } from "./components/admin/admin-products/admin-products.component";
+import { AdminOrdersComponent } from "./components/admin/admin-orders/admin-orders.component";
+import { LoginComponent } from "./components/login/login.component";
 
-import { AuthService } from "./auth.service";
+
+
+import { AuthService } from "./services/auth.service";
 import { AuthGuardService } from "./auth-guard.service";
-import { UserService } from "./user.service";
+import { UserService } from "./services/user.service";
+
 
 @NgModule({
   declarations: [

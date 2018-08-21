@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
-import { AngularFireAuth } from "../../node_modules/angularfire2/auth";
+import { AngularFireAuth } from "angularfire2/auth";
 import * as firebase  from "firebase";
 import { Observable } from "rxjs";
-import { ActivatedRoute } from "../../node_modules/@angular/router";
+import { ActivatedRoute } from "@angular/router";
 
 @Injectable({
   providedIn: "root"
