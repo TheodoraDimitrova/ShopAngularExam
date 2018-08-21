@@ -22,7 +22,6 @@ import { LoginComponent } from "./components/login/login.component";
 
 
 import { AuthService } from "./services/auth.service";
-import { AuthGuardService } from "./auth-guard.service";
 import { UserService } from "./services/user.service";
 
 
