@@ -10,8 +10,7 @@ import { ActivatedRoute } from "@angular/router";
 export class AuthService {
   user$: Observable<firebase.User>;
 
-  constructor(private afAuth: AngularFireAuth,
-  private route:ActivatedRoute) {
+  constructor(private afAuth: AngularFireAuth,private route:ActivatedRoute) {
     this.user$ = afAuth.authState;
   }
 
