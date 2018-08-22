@@ -7,6 +7,7 @@ import { AngularFireAuthModule } from "angularfire2/auth";
 import { RouterModule } from "@angular/router";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule } from "@angular/forms";
+import { CustomFormsModule } from 'ngx-custom-validators';
 
 import { AppComponent } from "./app.component";
 import { BsNavbarComponent } from "./components/bs-navbar/bs-navbar.component";
@@ -47,6 +48,7 @@ import { ProductService } from "./services/product.service";
   imports: [
     BrowserModule,
     FormsModule,
+    CustomFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, // for database
     AngularFireAuthModule,
