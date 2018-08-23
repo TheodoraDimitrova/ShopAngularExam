@@ -61,7 +61,7 @@ import { ProductService } from "./services/product.service";
     
     RouterModule.forRoot([
       //anonymousUsers
-      { path: "", component: HomeComponent },
+      { path: "", component: ProductsComponent },
       { path: "login", component: LoginComponent },
       { path: "register", component: RegisterComponent },
       { path: "products", component: ProductsComponent },
