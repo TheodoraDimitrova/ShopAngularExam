@@ -8,6 +8,8 @@ import { RouterModule } from "@angular/router";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule } from "@angular/forms";
 import { CustomFormsModule } from 'ngx-custom-validators';
+import {HttpClientModule} from '@angular/common/http';
+
 
 import { AppComponent } from "./app.component";
 import { BsNavbarComponent } from "./components/bs-navbar/bs-navbar.component";
@@ -21,6 +23,7 @@ import { AdminProductsComponent } from "./components/admin/admin-products/admin-
 import { AdminOrdersComponent } from "./components/admin/admin-orders/admin-orders.component";
 import { LoginComponent } from "./components/login/login.component";
 import { ProductFormComponent } from "./components/admin/product-form/product-form.component";
+import { RegisterComponent } from './components/register/register.component';
 
 import { AuthService } from "./services/auth.service";
 import { UserService } from "./services/user.service";
@@ -29,6 +32,7 @@ import { CategoryService } from "./services/category.service";
 import { AdminAuthGuard } from "./services/admin-auth-guard.service";
 import { AuthGuardService } from "./guards/auth-guard.service";
 import { ProductService } from "./services/product.service";
+
 
 @NgModule({
   declarations: [
@@ -43,7 +47,8 @@ import { ProductService } from "./services/product.service";
     AdminProductsComponent,
     AdminOrdersComponent,
     LoginComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -52,11 +57,13 @@ import { ProductService } from "./services/product.service";
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, // for database
     AngularFireAuthModule,
+    HttpClientModule,
     
     RouterModule.forRoot([
       //anonymousUsers
       { path: "", component: HomeComponent },
       { path: "login", component: LoginComponent },
+      { path: "register", component: RegisterComponent },
       { path: "products", component: ProductsComponent },
       { path: "shopping-card", component: ShoppingCardComponent },
 
@@ -78,14 +85,20 @@ import { ProductService } from "./services/product.service";
       },
 
       //admin routes
-      {
-        path: "admin/products",
-        component: AdminProductsComponent,
-        canActivate: [AuthGuardService, AdminAuthGuard]
-      },
+   
       {
         path: "admin/products/new",
         component: ProductFormComponent,
+        canActivate: [AuthGuardService, AdminAuthGuard]
+      },
+      {
+        path: "admin/products/:id",
+        component: ProductFormComponent,
+        canActivate: [AuthGuardService, AdminAuthGuard]
+      },
+      {
+        path: "admin/products",
+        component: AdminProductsComponent,
         canActivate: [AuthGuardService, AdminAuthGuard]
       },
       {

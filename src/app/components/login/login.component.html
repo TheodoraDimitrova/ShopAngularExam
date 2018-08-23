@@ -1,1 +1,59 @@
-<button class="btn btn-primary" (click)="login()">Login with Google</button>
+<div class="col-md-6">
+
+    <form class="form-horizontal" #f="ngForm" (ngSubmit)="loginWithEmail()">
+
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input  
+            type="email" 
+            name="email"
+            class="form-control" 
+            id="email" 
+            [(ngModel)]="model.email" 
+            #email="ngModel" 
+            [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+            required  email>
+            <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                    <div *ngIf="email.errors.required">Email is required</div>
+                    <div *ngIf="email.errors.email">Email is not valid</div>
+                </div>
+        </div>
+
+        
+        <div class="form-group">
+            <label for="password">Email address</label>
+            <input  
+            type="password" 
+            name="password"
+            class="form-control" 
+            id="password" 
+            [(ngModel)]="model.password" 
+            #password="ngModel" 
+            [ngClass]="{ 'is-invalid': f.submitted && password.invalid }"
+            required  >
+            <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                    <div *ngIf="password.errors.required">password is required</div>
+                   
+                </div>
+        </div>
+       
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success" >
+                    <i class="fa fa-user-plus"></i>Login</button>
+            </div>
+        </div>
+    </form>
+
+
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <button class="btn btn-primary" (click)="loginWithGoogle()">Login with Google</button>
+        </div>
+    </div>
+</div>
+

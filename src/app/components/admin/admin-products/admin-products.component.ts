@@ -16,6 +16,6 @@ export class AdminProductsComponent implements OnInit {
   }
 
   ngOnInit() {
-  console.log (JSON.stringify(this.products$))
+  
   }
 }
