@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { CategoryService } from "../../../services/category.service";
 import { map, take } from "rxjs/operators";
 import { ProductService } from "../../../services/product.service";
-import { AppProduct } from "../../../models/app-product";
 import { Router, ActivatedRoute } from "@angular/router";
+import { Product } from "../../../models/app-product";
 
 @Component({
   selector: "app-product-form",
@@ -34,7 +34,7 @@ export class ProductFormComponent implements OnInit {
 
   ngOnInit() {}
 
-  save(product: AppProduct) {
+  save(product: Product) {
     if (this.id) {
       this.productService.update(this.id, product);
     } else {

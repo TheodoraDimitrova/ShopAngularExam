@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { ProductService } from "../../../services/product.service";
 
 @Component({
@@ -11,9 +11,11 @@ export class AdminProductsComponent implements OnInit {
   products$;
 
 
+
   constructor(private productService: ProductService) {
     this.products$ = this.productService.getAll();
   }
+ 
 
   ngOnInit() {
   

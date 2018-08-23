@@ -1,12 +1,16 @@
 <div class="row">
   <div class="col-3">
     <h1> Categories</h1>
-    <ul class="list-group">
-    <li *ngFor="let c of categories$ | async" class="list-group-item">
+    <div class="list-group">
+    <a *ngFor="let c of categories$ | async" 
+    class="list-group-item list-group-item-action" 
+    routerLink="/"
+    [queryParams]="{category:c.key}"
+    [class.active]="category===c.key">
       {{c.data.name}}
-    </li>
+    </a>
 
-    </ul>
+  </div>
    
   </div>
   <div class="col-9">
@@ -31,5 +35,6 @@
 
   </div>
 </div>
+
 
 
