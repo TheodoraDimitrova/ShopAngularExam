@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '../../../node_modules/angularfire2/database';
 import { map } from 'rxjs/operators';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
   
-  constructor(private db:AngularFireDatabase) { }
+  constructor(public db:AngularFireDatabase) { }
 
   create(product){
     this.db.list('/products').push(product)
@@ -22,4 +23,13 @@ export class ProductService {
       });
     }));
   }
+  
+  getProduct(productId){
+    
+    return this.db.object('/products/'+ productId).valueChanges()
+    
+   
+  } 
+
+
 }

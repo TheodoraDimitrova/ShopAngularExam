@@ -6,8 +6,16 @@
 
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" name="title" [(ngModel)]="model.title" #title="ngModel" [ngClass]="{ 'is-invalid': f.submitted && title.invalid }"
-                    required minlength="3" />
+                <input 
+                type="text" 
+                class="form-control" 
+                name="title" 
+                [(ngModel)]="product.title" 
+                #title="ngModel" 
+                [ngClass]="{ 'is-invalid': f.submitted && title.invalid }"
+                    
+                required minlength="3" />
+                
                 <div *ngIf="f.submitted && title.invalid" class="invalid-feedback">
                     <div *ngIf="title.errors.required">Title Name is required</div>
                     <div *ngIf="title.errors.minlength">Title mist be min 3 chars</div>
@@ -20,7 +28,13 @@
 
             <div class="form-group">
                 <label for="price">Price</label>
-                <input type="number" class="form-control" name="price" [(ngModel)]="model.price" #price="ngModel" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }"
+                <input 
+                type="number" 
+                class="form-control"
+                 name="price" 
+                [(ngModel)]="product.price" 
+                #price="ngModel" 
+                [ngClass]="{ 'is-invalid': f.submitted && price.invalid }"
                     required [gt]="1" [lt]="50" />
                 <div *ngIf="f.submitted && price.invalid" class="invalid-feedback">
                     <div *ngIf="price.errors.required">Price is required</div>
@@ -32,7 +46,7 @@
 
             <div class="form-group">
                 <label for="category">Category</label>
-                <select #category="ngModel" ngModel name="category" id="category" class="form-control" [(ngModel)]="model.category" [ngClass]="{ 'is-invalid': f.submitted && category.invalid }"
+                <select #category="ngModel"  name="category" id="category" class="form-control" [(ngModel)]="product.category" [ngClass]="{ 'is-invalid': f.submitted && category.invalid }"
                     required>
                     <option value=""></option>
                     <option *ngFor="let c of categories$ | async" [value]="c.key">{{c.key}}</option>
@@ -44,9 +58,11 @@
 
 
             </div>
+
+
             <div class="form-group">
                 <label for="imageUrl">Image Url</label>
-                <input type="text" class="form-control" name="imageUrl" [(ngModel)]="model.imageUrl" #imageUrl="ngModel" [ngClass]="{ 'is-invalid': f.submitted && imageUrl.invalid }"
+                <input  type="text" class="form-control" name="imageUrl" [(ngModel)]="product.imageUrl" #imageUrl="ngModel" [ngClass]="{ 'is-invalid': f.submitted && imageUrl.invalid }"
                     required url/>
                 <div *ngIf="f.submitted && imageUrl.invalid" class="invalid-feedback">
                     <div *ngIf="imageUrl.errors.required">ImageUrl is required</div>
@@ -58,14 +74,18 @@
             <button class="btn btn-primary">Save Product</button>
         </form>
     </div>
+
+
+
+
     <div class="col-md-6">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 27rem;">
                 <h2 class="card-title">{{title.value}}</h2>
-            <img class="card-img-top" [src]="imageUrl.value"  alt="Card image cap">
+            <img class="card-img-top"  [src]="imageUrl.value"  alt="Card image cap">
             <div class="card-body">
                    
                 <h5 class="card-title">Category: {{category.value}}</h5>
-                <p class="card-text">{{price.value | currency:"BG Leva  ":true}}</p>
+                <p class="card-text">{{price.value}} leva</p>
                
             </div>
         </div>
