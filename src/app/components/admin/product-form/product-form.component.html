@@ -24,8 +24,6 @@
 
 
 
-
-
             <div class="form-group">
                 <label for="price">Price</label>
                 <input 
@@ -49,7 +47,7 @@
                 <select #category="ngModel"  name="category" id="category" class="form-control" [(ngModel)]="product.category" [ngClass]="{ 'is-invalid': f.submitted && category.invalid }"
                     required>
                     <option value=""></option>
-                    <option *ngFor="let c of categories$ | async" [value]="c.key">{{c.key}}</option>
+                    <option *ngFor="let c of categories$ | async" [value]="c.key">{{c.data.name}}</option>
                 </select>
                 <div *ngIf="f.submitted && category.invalid" class="invalid-feedback">
                     <div *ngIf="category.errors.required">Category is required</div>
@@ -77,8 +75,6 @@
     </div>
 
 
-
-
     <div class="col-md-6">
         <div class="card" style="width: 27rem;">
                 <h2 class="card-title">{{title.value}}</h2>
@@ -91,4 +87,6 @@
             </div>
         </div>
     </div>
+
+
 </div>
