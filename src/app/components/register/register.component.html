@@ -1,0 +1,95 @@
+<div class="col-md-6">
+
+    <form class="form-horizontal" #f="ngForm" (ngSubmit)="register()">
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input  
+            type="name" 
+            name="name"
+            class="form-control" 
+            id="name" 
+            [(ngModel)]="model.name" 
+            #name="ngModel" 
+            [ngClass]="{ 'is-invalid': f.submitted && name.invalid }"
+            required minlength="4" >
+            <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+                    <div *ngIf="name.errors.required">Name is required</div>
+                    <div *ngIf="name.errors.minlength">
+                        Name must be at least 4 characters long.
+                      </div>
+                </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input  
+            type="email" 
+            name="email"
+            class="form-control" 
+            id="email" 
+            [(ngModel)]="model.email" 
+            #email="ngModel" 
+            [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
+            required  email>
+            <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                    <div *ngIf="email.errors.required">Email is required</div>
+                    <div *ngIf="email.errors.email">Email is not valid</div>
+                </div>
+        </div>
+
+        
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input  
+            type="password" 
+            name="password"
+            class="form-control" 
+            id="password" 
+            [(ngModel)]="model.password" 
+            #password="ngModel" 
+            [ngClass]="{ 'is-invalid': f.submitted && password.invalid }"
+            required minlength="6" >
+            <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                    <div *ngIf="password.errors.required">Password is required</div>
+                    <div *ngIf="name.errors.minlength">
+                        Password must be at least 6 characters long.
+                      </div>
+                   
+                </div>
+        </div>
+
+        
+        <div class="form-group">
+            <label for="certainPassword">Repeat Password</label>
+            <input  
+            type="password" 
+            name="certainPassword"
+            class="form-control" 
+            id="certainPassword" 
+            [(ngModel)]="model.certainPassword" 
+            #certainPassword="ngModel" 
+            [ngClass]="{ 'is-invalid': f.submitted && certainPassword.invalid }"
+            required  minlength="6" [equalTo]="password">
+            <div *ngIf="f.submitted && certainPassword.invalid" class="invalid-feedback">
+                    <div *ngIf="certainPassword.errors.required">Password is required</div>
+                    <div *ngIf="certainPassword.errors?.equalTo">Passwords does not match</div>
+                </div>
+        </div>
+       
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success" >
+                    <i class="fa fa-user-plus"></i>Register</button>
+            </div>
+        </div>
+    </form>
+
+
+
+ 
+
