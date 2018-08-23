@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CategoryService } from "../../../services/category.service";
-import { map, take } from 'rxjs/operators';
+import { map, take } from "rxjs/operators";
 import { ProductService } from "../../../services/product.service";
 import { AppProduct } from "../../../models/app-product";
 import { Router, ActivatedRoute } from "@angular/router";
@@ -13,26 +13,34 @@ import { Router, ActivatedRoute } from "@angular/router";
 export class ProductFormComponent implements OnInit {
   categories$;
   model: any = {};
-  product={}
+  product = {};
+  id;
 
   constructor(
     private categoryService: CategoryService,
     private productService: ProductService,
     private router: Router,
-    private route:ActivatedRoute
+    private route: ActivatedRoute
   ) {
     this.categories$ = categoryService.getCategories();
-    let id=this.route.snapshot.paramMap.get('id')
+    this.id = this.route.snapshot.paramMap.get("id");
 
-    if(id) this.productService.getProduct(id).pipe(take(1)).subscribe(p => this.product=p)
+    if (this.id)
+      this.productService
+        .getProduct(this.id)
+        .pipe(take(1))
+        .subscribe(p => (this.product = p));
   }
 
-  ngOnInit() {
-  
-  }
+  ngOnInit() {}
 
   save(product: AppProduct) {
-    this.productService.create(product);
-    this.router.navigate(['/admin/products'])
+    if (this.id) {
+      this.productService.update(this.id, product);
+    } else {
+      this.productService.create(product);
+      
+    }
+    this.router.navigate(["/admin/products"]);
   }
 }
