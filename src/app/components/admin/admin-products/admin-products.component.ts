@@ -13,7 +13,7 @@ export class AdminProductsComponent implements OnInit {
 
 
   constructor(private productService: ProductService) {
-    this.products$ = this.productService.getAll();
+    this.products$ = this.productService.getAllAdmin();
   }
  
 

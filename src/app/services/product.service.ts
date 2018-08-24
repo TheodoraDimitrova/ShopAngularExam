@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '../../../node_modules/angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { map } from 'rxjs/operators';
 
 
@@ -15,14 +15,23 @@ export class ProductService {
   }
 
   getAll(){
-    return this.db.list('/products').snapshotChanges().pipe(map(items => {           // <== new way of chaining
-      return items.map(a => {
-        const data = a.payload.val();
-        const key = a.payload.key;
-        return {key, data};           // or {key, ...data} in case data is Obj
-      });
-    }));
+     return this.db.list('/products').valueChanges()//.pipe(map(items => {           // <== new way of chaining
+    //   return items.map(a => {
+    //     const data = a.payload.val();
+    //     const key = a.payload.key;
+    //     return {key, data};           // or {key, ...data} in case data is Obj
+    //   });
+    // }));
   }
+  getAllAdmin(){
+    return this.db.list('/products').snapshotChanges().pipe(map(items => {           // <== new way of chaining
+     return items.map(a => {
+       const data = a.payload.val();
+       const key = a.payload.key;
+       return {key, data};           // or {key, ...data} in case data is Obj
+     });
+   }));
+ }
   
   getProduct(productId){
     return this.db.object('/products/'+ productId).valueChanges()
