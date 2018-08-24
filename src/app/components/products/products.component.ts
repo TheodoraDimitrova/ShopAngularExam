@@ -15,6 +15,7 @@ export class ProductsComponent implements OnInit {
   category: string;
   filteredProducts: any[];
 
+
   constructor(
     route: ActivatedRoute,
     productService: ProductService,
@@ -33,16 +34,17 @@ export class ProductsComponent implements OnInit {
       });
     });
   }
-  addToCart(p) {
-    console.log(p);
-    let cartId = localStorage.getItem("cartId");
-    if (!cartId) {
-      this.cardService.create().then(result => {
-        localStorage.setItem("cartId", result.key);
-      });
-    } else {
-    }
+
+
+
+
+  addToCart(product) {
+    this.cardService.addToCart(product)
   }
 
-  ngOnInit() {}
+ 
+
+  ngOnInit() {
+    
+  }
 }

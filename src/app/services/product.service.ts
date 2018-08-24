@@ -15,7 +15,7 @@ export class ProductService {
   }
 
   getAll(){
-     return this.db.list('/products').valueChanges()//.pipe(map(items => {           // <== new way of chaining
+     return this.db.list('/products').snapshotChanges()//.pipe(map(items => {           // <== new way of chaining
     //   return items.map(a => {
     //     const data = a.payload.val();
     //     const key = a.payload.key;
