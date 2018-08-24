@@ -5,7 +5,9 @@
   
       <h1> Categories</h1>
       <div class="list-group">
-        <a *ngFor="let c of categories$ | async" class="list-group-item list-group-item-action" routerLink="/" [queryParams]="{category:c.key}"
+        <a *ngFor="let c of categories$ | async" 
+        class="list-group-item list-group-item-action" 
+        routerLink="/" [queryParams]="{category:c.key}"
           [class.active]="category===c.key">
           {{c.data.name}}
         </a>
@@ -29,7 +31,7 @@
 
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary btn-block">Add to Cart</a>
+          <button (click)="addToCart(p)" class="btn btn-primary btn-block">Add to Cart</button>
             </div>
           </div>
         </div>
