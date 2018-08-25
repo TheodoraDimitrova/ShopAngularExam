@@ -24,6 +24,7 @@ export class ProductsComponent implements OnInit {
   ) {
     productService.getAll().subscribe(p => {
       this.products = p;
+      console.log(this.products)
       this.categories$ = categoryService.getCategories();
 
       route.queryParamMap.subscribe(params => {

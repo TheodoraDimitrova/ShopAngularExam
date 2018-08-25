@@ -33,6 +33,7 @@ export class ShoppingCartService {
   }
 
   async addToCart(product) {
+    console.log(product.key)
     let cartId = await this.getOrCreateCart();
     let item = this.db.object(
       "/shopping-carts/" + cartId + "/items/" + product.key

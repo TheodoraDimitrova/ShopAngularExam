@@ -13,7 +13,6 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from "./app.component";
 import { BsNavbarComponent } from "./components/bs-navbar/bs-navbar.component";
-import { HomeComponent } from "./components/home/home.component";
 import { ProductsComponent } from "./components/products/products.component";
 import { ShoppingCardComponent } from "./components/shopping-card/shopping-card.component";
 import { CheckOutComponent } from "./components/check-out/check-out.component";
@@ -39,7 +38,6 @@ import { ShoppingCartService } from "./services/shopping-cart.service";
   declarations: [
     AppComponent,
     BsNavbarComponent,
-    HomeComponent,
     ProductsComponent,
     ShoppingCardComponent,
     CheckOutComponent,
