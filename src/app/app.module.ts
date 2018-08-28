@@ -48,6 +48,9 @@ import { ShoppingCartService } from "./services/shopping-cart.service";
     LoginComponent,
     ProductFormComponent,
     RegisterComponent
+    
+    
+    
   ],
   imports: [
     BrowserModule,
