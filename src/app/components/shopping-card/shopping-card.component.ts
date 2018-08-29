@@ -12,30 +12,33 @@ export class ShoppingCardComponent implements OnInit {
   cartId: string;
   cart: {};
   items: any[];
-  
+  empty: boolean;
+
   constructor(private shoppingCardService: ShoppingCartService) {}
 
   ngOnInit() {
-    this.cartId = localStorage.getItem("cartId");
     this.shoppingCardService
-      .getCart(this.cartId)
+      .getCart()
       .pipe(take(1))
       .subscribe((i: any) => {
         if (i.payload.val()) {
           this.cart = i.payload.val();
-          console.log(this.cart);
 
           this.items = Object.keys(i.payload.val().items).map(key => ({
             key: key,
-            value: i.payload.val().items[key]
+            value: i.payload.val().items[key],
+            quantity: i.payload.val().items[key].quantity
           }));
+        } else {
+          this.empty = true;
         }
-      
       });
   }
 
   clearCart() {
-    this.shoppingCardService.clearCart();
     this.cart = {};
+    this.empty = true;
+
+    this.shoppingCardService.clearCart();
   }
 }

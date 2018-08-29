@@ -15,7 +15,6 @@ export class ProductsComponent {
   categories$;
   category: string;
   filteredProducts: any[];
- 
 
   constructor(
     route: ActivatedRoute,
@@ -38,6 +37,4 @@ export class ProductsComponent {
   addToCart(product) {
     this.cardService.addToCart(product);
   }
- 
-
 }

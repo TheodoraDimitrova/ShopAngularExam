@@ -14,7 +14,9 @@ export class ShoppingCartService {
     });
   }
 
-  getCart(cartId: string) {
+  getCart() {
+    
+    let cartId = localStorage.getItem("cartId");
     return this.db.object("/shopping-carts/" + cartId).snapshotChanges();
   }
 

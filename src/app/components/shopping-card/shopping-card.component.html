@@ -1,17 +1,22 @@
 <h1>Shopping Cart</h1>
+<p class="card-text" *ngIf="items">You have    {{items.length}}   items in your shopping cart</p>
 <div class="row col-10" *ngIf="cart">
+    <button 
+    *ngIf="items.length"
+    (click)="clearCart()"
+    class="btn btn-dark btn-sm">Clear Shopping Cart</button>
  
   
   <table class="table">
     <thead>
       <tr>
-        <th></th>
-        <th>Product</th>
+        <th class="text-center" style="width: 230px">Product</th>
         <th class="text-center" style="width: 230px">Quantity</th>
         <th class="text-right" style="width: 200px">Price</th>
+        <th class="text-right" style="width: 200px">Total:</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="!empty">
         <tr *ngFor="let item of items">
             <td>
               <div [style.backgroundImage]="'url(' +item.value.product.imageUrl + ')'" class="thumbnail">
@@ -21,13 +26,13 @@
               {{item.value.product.title}}
             </td>
             <td>
-              {{item.value.quantity}}
+              {{item.quantity}}
             </td>
             <td>
               {{item.value.product.price}}
             </td>   
             <td>
-              {{item.value.product.price * item.value.quantity}}
+              {{item.value.product.price * item.quantity}}
             </td>  
         </tr>
       </tbody>
@@ -36,11 +41,13 @@
         <th></th>
         <th></th>
         <th></th>
-        <th class="text-right">Total Price:</th>
+      
       </tr>
     </tfoot> 
   </table> 
-  <button 
-    (click)="clearCart()"
-    class="btn btn-danger btn-sm">Clear Shopping Cart</button>
+  <a 
+  *ngIf="items.length"
+  routerLink="/check-out"
+  class="btn btn-primary">Check Out</a>
+ 
 </div>

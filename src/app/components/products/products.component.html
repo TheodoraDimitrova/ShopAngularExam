@@ -1,7 +1,7 @@
 <div class="row">
 
 
-  <div class="sticky-top col-3">
+  <div class="sticky-top col-md-3">
 
     <h1> Categories</h1>
     <div class="list-group">
@@ -14,10 +14,10 @@
   </div>
 
 
-  <div class="col-9">
-    <div class="row">
+  <div class="col-md-9">
+ 
       <ng-container *ngFor="let product of filteredProducts ; let i=index">
-        <div class="col">
+      
 
 
           <div *ngIf="product.data.title" class="cart" style="width: 20rem">
@@ -33,19 +33,13 @@
               </div>
               <div class="card-footer">
                 <button (click)="addToCart(product)" class="btn btn-primary btn-block">Add to Cart</button>
-
-
-
               </div>
             </div>
-
-          </div>
-
-
         </div>
         <div *ngIf="(i + 1 ) % 2 === 0" class="w-100"></div>
       </ng-container>
+
+
     </div>
 
-  </div>
 </div>
