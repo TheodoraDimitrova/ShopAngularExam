@@ -10,14 +10,15 @@
   <table class="table">
     <thead>
       <tr>
-        <th class="text-center" style="width: 230px">Product</th>
-        <th class="text-center" style="width: 230px">Quantity</th>
-        <th class="text-right" style="width: 200px">Price</th>
-        <th class="text-right" style="width: 200px">Total:</th>
+        <th scope="col">Product</th>
+        <th scope="col">Title</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">Total:</th>
       </tr>
     </thead>
     <tbody *ngIf="!empty">
-        <tr *ngFor="let item of items">
+        <tr scope="row" *ngFor="let item of items">
             <td>
               <div [style.backgroundImage]="'url(' +item.value.product.imageUrl + ')'" class="thumbnail">
               </div>

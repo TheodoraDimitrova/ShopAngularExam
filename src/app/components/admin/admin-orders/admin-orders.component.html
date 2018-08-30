@@ -2,18 +2,26 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Customer</th>
-      <th>Date</th>
-      <th></th>
+      <th scope="col"></th>
+      <th scope="col">Customer</th>
+      <th scope="col">Date</th>
+      <th scope="col">Details Order</th>
+      
     </tr>
-  </thead> 
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let order of orders; let i=index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{order.data.shipping.name}}</td>
+      <td> {{ order.data.datePlaced | date}}</td>
+      <td><a [routerLink]="['/admin/orders',order.key]">View</a></td>
+    </tr>
+   
+   
+  </tbody>
  
-</table> <tbody>
-     <tr *ngFor="let order of orders">
-      <td>{{order.data.shipping.name}}</td> -->
-      <td>{{ order.data.datePlaced | date}}</td> 
-      <td>
-          <a [routerLink]="['/admin/orders',order.key]">View</a>
-      </td>
-    </tr>
-  </tbody> 
+</table> 
+
+
+
