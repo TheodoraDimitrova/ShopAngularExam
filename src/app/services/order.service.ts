@@ -28,4 +28,10 @@ export class OrderService {
   getOrder(orderId){
     return this.db.object('/orders/'+ orderId).snapshotChanges()
   } 
+
+  
+  getAllByUser(userId: string){
+   
+    return this.db.list<any>('/orders', ref => ref.orderByChild('userId').equalTo(userId)).snapshotChanges();
+  }
 }

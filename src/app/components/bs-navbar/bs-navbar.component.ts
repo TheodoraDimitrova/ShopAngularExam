@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../../services/auth.service";
 import { AppUser } from "../../models/app-user";
-import { ShoppingCartService } from "../../services/shopping-cart.service";
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -11,7 +11,7 @@ import { ShoppingCartService } from "../../services/shopping-cart.service";
 })
 export class BsNavbarComponent implements OnInit {
   appUser: AppUser
-  constructor(private auth: AuthService) {
+  constructor(private auth: AuthService, private router:Router) {
    
   }
 
@@ -23,5 +23,6 @@ export class BsNavbarComponent implements OnInit {
 
   logout() {
     this.auth.logout();
+    this.router.navigate(["/"]);
   }
 }

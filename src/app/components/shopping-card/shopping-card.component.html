@@ -2,12 +2,12 @@
 <p class="card-text" *ngIf="items">You have    {{items.length}}   items in your shopping cart</p>
 <div class="row col-10" *ngIf="cart">
     <button 
-    *ngIf="items.length"
+    *ngIf="items"
     (click)="clearCart()"
     class="btn btn-dark btn-sm">Clear Shopping Cart</button>
  
   
-  <table class="table">
+  <table class="table" *ngIf="items">
     <thead>
       <tr>
         <th scope="col">Product</th>
@@ -17,7 +17,7 @@
         <th scope="col">Total:</th>
       </tr>
     </thead>
-    <tbody *ngIf="!empty">
+    <tbody >
         <tr scope="row" *ngFor="let item of items">
             <td>
               <div [style.backgroundImage]="'url(' +item.value.product.imageUrl + ')'" class="thumbnail">
@@ -27,7 +27,22 @@
               {{item.value.product.title}}
             </td>
             <td>
-              {{item.quantity}}
+              
+              <div class="row no-gutters">
+                  <div class="col-2">
+                    <button 
+                     (click)="removeFromCart(item)"
+                      class="btn btn-secondary btn-block">-</button> 
+                  </div>
+                  <div class="col text-center">
+                      {{item.quantity}}
+                  </div>
+                  <div class="col-2">
+                    <button 
+                     (click)="addToCart(item)"
+                      class="btn btn-secondary btn-block">+</button> 
+                  </div>
+                </div>
             </td>
             <td>
               {{item.value.product.price}}
@@ -47,7 +62,7 @@
     </tfoot> 
   </table> 
   <a 
-  *ngIf="items.length"
+  *ngIf="items"
   routerLink="/check-out"
   class="btn btn-primary">Check Out</a>
  

@@ -61,4 +61,12 @@ export class ShoppingCartService {
     let cartId = await this.getOrCreateCart();
     this.db.object("/shopping-carts/" + cartId + "/items").remove();
   }
+
+ addOne(product) { 
+   
+  }
+
+   removeOne(product) {
+    
+  }
 }
