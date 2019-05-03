@@ -17,33 +17,6 @@
   </div>
 
 
-<<<<<<< HEAD
-  <div class="col-9">
-    <div class="row">
-      <ng-container *ngFor="let product of filteredProducts ; let i=index">
-        <div class="col">
-
-
-            <div *ngIf="product.data.title" class="cart" style="width: 20rem">
-
-                <div  >
-                    <img  *ngIf="product.data.imageUrl"  class="card-img-top" [src]="product.data.imageUrl" alt="{{product.data.title}}">
-                    <div class="card-body">
-                  
-                     <h4 class="cart-title">{{product.data.title}}</h4>
-                      <p class="card-text">{{product.data.price}} leva</p>
-                 
-                  
-                    </div>
-                    <div class="card-footer">
-                      <button (click)="addToCart(product)" class="btn btn-primary btn-block">Add to Cart</button>
-                   <div>{{getQuantity(product.key)}}</div>
-            
-                    </div>
-                  </div>
-            
-            </div>
-=======
 
   <div class="col">
   <div class="row">
@@ -73,18 +46,8 @@
           <div *ngIf="(i + 1 ) % 2 === 0" class="w-100"></div>
         </ng-container>
 
->>>>>>> af2c9e3b195a5f164b9264b3b23f9a6e7ba416ad
 
-  </div>
-   
-
-<<<<<<< HEAD
-        </div>
-        <div *ngIf="(i + 1 ) % 2 === 0" class="w-100"></div>
-      </ng-container>
-    </div>
-=======
->>>>>>> af2c9e3b195a5f164b9264b3b23f9a6e7ba416ad
+ 
 
   </div>
 

@@ -49,12 +49,8 @@ import { OrderDetailsComponent } from './components/admin/order-details/order-de
     AdminOrdersComponent,
     LoginComponent,
     ProductFormComponent,
-<<<<<<< HEAD
-    RegisterComponent
-=======
     RegisterComponent,
     OrderDetailsComponent
->>>>>>> af2c9e3b195a5f164b9264b3b23f9a6e7ba416ad
     
     
     
