@@ -1,8 +1,6 @@
 <h1>Shopping Cart</h1>
 <div class="row col-10" *ngIf="cart">
-  <p>
-    You have items in your shopping cart. 
-  </p>
+ 
   
   <table class="table">
     <thead>
@@ -27,7 +25,7 @@
             </td>
             <td>
               {{item.value.product.price}}
-            </td>
+            </td>   
         </tr>
       </tbody>
     <tfoot>
@@ -38,21 +36,7 @@
         <th class="text-right">Total Price:</th>
       </tr>
     </tfoot> 
-  </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  </table> 
   <button 
     (click)="clearCart()"
     class="btn btn-danger btn-sm">Clear Shopping Cart</button>
