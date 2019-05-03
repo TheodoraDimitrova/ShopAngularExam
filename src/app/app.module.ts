@@ -32,6 +32,8 @@ import { AdminAuthGuard } from "./services/admin-auth-guard.service";
 import { AuthGuardService } from "./guards/auth-guard.service";
 import { ProductService } from "./services/product.service";
 import { ShoppingCartService } from "./services/shopping-cart.service";
+import { OrderService } from "./services/order.service";
+import { OrderDetailsComponent } from './components/admin/order-details/order-details.component';
 
 
 @NgModule({
@@ -47,7 +49,12 @@ import { ShoppingCartService } from "./services/shopping-cart.service";
     AdminOrdersComponent,
     LoginComponent,
     ProductFormComponent,
+<<<<<<< HEAD
     RegisterComponent
+=======
+    RegisterComponent,
+    OrderDetailsComponent
+>>>>>>> af2c9e3b195a5f164b9264b3b23f9a6e7ba416ad
     
     
     
@@ -73,6 +80,11 @@ import { ShoppingCartService } from "./services/shopping-cart.service";
       {
         path: "check-out",
         component: CheckOutComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: "order-success/:id",
+        component: OrderSuccessComponent,
         canActivate: [AuthGuardService]
       },
       {
@@ -107,6 +119,11 @@ import { ShoppingCartService } from "./services/shopping-cart.service";
         path: "admin/orders",
         component: AdminOrdersComponent,
         canActivate: [AuthGuardService, AdminAuthGuard]
+      },
+      {
+        path: "admin/orders/:id",
+        component: OrderDetailsComponent,
+        canActivate: [AuthGuardService, AdminAuthGuard]
       }
     ]),
     NgbModule.forRoot()
@@ -118,7 +135,8 @@ import { ShoppingCartService } from "./services/shopping-cart.service";
     UserService,
     CategoryService,
     ProductService,
-    ShoppingCartService
+    ShoppingCartService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })

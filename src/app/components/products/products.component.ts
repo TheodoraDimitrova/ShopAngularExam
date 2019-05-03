@@ -15,7 +15,10 @@ export class ProductsComponent {
   categories$;
   category: string;
   filteredProducts: any[];
+<<<<<<< HEAD
   
+=======
+>>>>>>> af2c9e3b195a5f164b9264b3b23f9a6e7ba416ad
 
   constructor(
     route: ActivatedRoute,
@@ -25,7 +28,10 @@ export class ProductsComponent {
   ) {
     productService.getAll().subscribe(p => {
       this.products = p;
+<<<<<<< HEAD
       console.log(this.products);
+=======
+>>>>>>> af2c9e3b195a5f164b9264b3b23f9a6e7ba416ad
       this.categories$ = categoryService.getCategories();
       route.queryParamMap.subscribe(params => {
         this.category = params.get("category");
@@ -38,6 +44,7 @@ export class ProductsComponent {
 
   addToCart(product) {
     this.cardService.addToCart(product);
+<<<<<<< HEAD
   }
   getQuantity(productKey) {
     let cartId = localStorage.getItem("cartId");
@@ -58,6 +65,8 @@ export class ProductsComponent {
 
     
    
+=======
+>>>>>>> af2c9e3b195a5f164b9264b3b23f9a6e7ba416ad
   }
  
 }

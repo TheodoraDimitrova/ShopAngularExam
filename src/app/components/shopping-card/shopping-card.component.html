@@ -1,18 +1,27 @@
 <h1>Shopping Cart</h1>
+<p class="card-text" *ngIf="items">You have    {{items.length}}   items in your shopping cart</p>
 <div class="row col-10" *ngIf="cart">
+<<<<<<< HEAD
+=======
+    <button 
+    *ngIf="items"
+    (click)="clearCart()"
+    class="btn btn-dark btn-sm">Clear Shopping Cart</button>
+>>>>>>> af2c9e3b195a5f164b9264b3b23f9a6e7ba416ad
  
   
-  <table class="table">
+  <table class="table" *ngIf="items">
     <thead>
       <tr>
-        <th></th>
-        <th>Product</th>
-        <th class="text-center" style="width: 230px">Quantity</th>
-        <th class="text-right" style="width: 200px">Price</th>
+        <th scope="col">Product</th>
+        <th scope="col">Title</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">Total:</th>
       </tr>
     </thead>
-    <tbody>
-        <tr *ngFor="let item of items">
+    <tbody >
+        <tr scope="row" *ngFor="let item of items">
             <td>
               <div [style.backgroundImage]="'url(' +item.value.product.imageUrl + ')'" class="thumbnail">
               </div>
@@ -21,11 +30,32 @@
               {{item.value.product.title}}
             </td>
             <td>
-              {{item.value.quantity}}
+              
+              <div class="row no-gutters">
+                  <div class="col-2">
+                    <button 
+                     (click)="removeFromCart(item)"
+                      class="btn btn-secondary btn-block">-</button> 
+                  </div>
+                  <div class="col text-center">
+                      {{item.quantity}}
+                  </div>
+                  <div class="col-2">
+                    <button 
+                     (click)="addToCart(item)"
+                      class="btn btn-secondary btn-block">+</button> 
+                  </div>
+                </div>
             </td>
             <td>
               {{item.value.product.price}}
             </td>   
+<<<<<<< HEAD
+=======
+            <td>
+              {{item.value.product.price * item.quantity}}
+            </td>  
+>>>>>>> af2c9e3b195a5f164b9264b3b23f9a6e7ba416ad
         </tr>
       </tbody>
     <tfoot>
@@ -33,11 +63,19 @@
         <th></th>
         <th></th>
         <th></th>
-        <th class="text-right">Total Price:</th>
+      
       </tr>
     </tfoot> 
   </table> 
+<<<<<<< HEAD
   <button 
     (click)="clearCart()"
     class="btn btn-danger btn-sm">Clear Shopping Cart</button>
+=======
+  <a 
+  *ngIf="items"
+  routerLink="/check-out"
+  class="btn btn-primary">Check Out</a>
+ 
+>>>>>>> af2c9e3b195a5f164b9264b3b23f9a6e7ba416ad
 </div>

@@ -14,7 +14,13 @@ export class ShoppingCartService {
     });
   }
 
+<<<<<<< HEAD
   getCart(cartId: string) {
+=======
+  getCart() {
+    
+    let cartId = localStorage.getItem("cartId");
+>>>>>>> af2c9e3b195a5f164b9264b3b23f9a6e7ba416ad
     return this.db.object("/shopping-carts/" + cartId).snapshotChanges();
   }
 
@@ -29,13 +35,22 @@ export class ShoppingCartService {
     }
   }
 
+<<<<<<< HEAD
    getItem(cartId: string, productId: string) {
+=======
+   getItem( productId: string) {
+    let cartId = localStorage.getItem("cartId");
+>>>>>>> af2c9e3b195a5f164b9264b3b23f9a6e7ba416ad
     return this.db.object("/shopping-carts/" + cartId + "/items/" + productId);
   }
 
   async addToCart(product) {
     let cartId = await this.getOrCreateCart();
+<<<<<<< HEAD
     let item = this.getItem(cartId, product.key);
+=======
+    let item = this.getItem( product.key);
+>>>>>>> af2c9e3b195a5f164b9264b3b23f9a6e7ba416ad
     item
       .snapshotChanges()
       .pipe(take(1))
@@ -58,4 +73,15 @@ export class ShoppingCartService {
     let cartId = await this.getOrCreateCart();
     this.db.object("/shopping-carts/" + cartId + "/items").remove();
   }
+<<<<<<< HEAD
+=======
+
+ addOne(product) { 
+   
+  }
+
+   removeOne(product) {
+    
+  }
+>>>>>>> af2c9e3b195a5f164b9264b3b23f9a6e7ba416ad
 }
