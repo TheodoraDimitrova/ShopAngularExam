@@ -15,6 +15,7 @@ export class ProductFormComponent implements OnInit {
   model: any = {};
   product = {};
   id;
+  
 
   constructor(
     private categoryService: CategoryService,
